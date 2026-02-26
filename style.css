@@ -11,10 +11,9 @@
     
 
     .position {
+        display: flex;
         font-size: 3rem;
-        align-content: center;
-        text-align: center;
-        background-color: white;
+        background-color: red;
         border: 2px solid rgb(100, 255, 100);
     }
 }

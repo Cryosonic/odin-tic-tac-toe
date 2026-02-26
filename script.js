@@ -1,7 +1,7 @@
 const arena = document.querySelector(".arena");
 
 const placeX = (target) => {
-    target.textContent = "X";
+    target.innerHTML = `<img src="./images/naught.png">`;
 }
 
 arena.addEventListener("click", (e) => {
