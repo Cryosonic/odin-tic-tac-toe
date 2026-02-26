@@ -21,6 +21,22 @@ const gameBoard = function(){
     let diagonal2Total = board[0][2] + board[1][1] + board[2][0]
 }
 
+const playerOne = function() {
+    const marker = "./images/naught.png";
+    const markerColor = "blue";
+    let roundScore = 0;
+}
+
+const playerTwo = function() {
+    const marker = "./images/cross.png";
+    const markerColor = "red";
+    let roundScore = 0;
+}
+
+const scoreBoard = function() {
+    const currentRound = 0;
+}
+
 arena.addEventListener("click", (e) => {
     if(e.target.classList.contains("position")) {
     }
