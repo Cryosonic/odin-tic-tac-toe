@@ -14,21 +14,25 @@
         <div id="round"><p>Round</p><p id="round-counter">1</p></div>
         <div id="player-one">
             <p class="player-header">Player 1</p>
-            <p>Player Name: <span id="p1-name"></span><input id="p1-name-input" type="text" maxlength="16"><button id="set-p1">Set</button></p>
+            <p>Player Name: <span id="p1-name"></span>
+                <input id="p1-name-input" type="text" maxlength="16" placeholder="Player 1 Name">
+                <button type="button" id="set-p1">Confirm Player 1 Name</button></p>
             <p>Player symbol: <img src="./images/cross.png"></p>
             <p>Player Color: <div id="p1-color-selector">red</div></p>
             <p>Player 1 score: <span id="p1-score-counter">0</span></p>
         </div>
         <div id="player-two">
             <p class="player-header">Player 2</p>
-            <p>Player Name: <span id="p2-name"></span><input id="p2-name-input" type="text" maxlength="16"><button id="set-p2">Set</button></p>
+            <p>Player Name: <span id="p2-name"></span>
+                <input id="p2-name-input" type="text" maxlength="16" placeholder="Player 2 Name">
+                <button type="button" id="set-p2">Confirm Player 2 Name</button></p>
             <p>Player symbol: <img src="./images/naught.png"></p>
             <p>Player Color: <div id="p1-color-selector">blue</div></p>
             <p>Player 2 score: <span id="p2-score-counter">0</span></p>
         </div>
     </div>
 
-    <div class="arena">
+    <div id="arena">
         <div class="position x=0 y=0"></div>
         <div class="position x=0 y=1"></div>
         <div class="position x=0 y=2"></div>
@@ -39,5 +43,12 @@
         <div class="position x=2 y=1"></div>
         <div class="position x=2 y=2"></div>
     </div>
+
+    <div id="end-round-container" class="hidden">
+        <p id="announcement"></p>
+        <button type="button" id="next-round">Next round</button>
+        <button type="button" id="reset-game">Reset game</button>
+    </div>
+
 </body>
 </html>

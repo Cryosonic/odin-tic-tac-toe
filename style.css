@@ -2,7 +2,11 @@ h1 {
     text-align: center;
 }
 
-.arena {
+.hidden {
+    display: none;
+}
+
+#arena {
     display: grid;
     background-color: black;
     width: min-content;
