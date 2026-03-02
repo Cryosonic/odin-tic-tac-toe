@@ -5,23 +5,25 @@ const scoreBoard = (() => {
     const player2ScoreCounter = document.getElementById("p2-score-counter");
  
 
-    const player1WinRound = (currentRound, player1Score) => {
-        round.textContent = currentRound;
+    const player1WinRound = (player1Score) => {
         player1ScoreCounter.textContent = player1Score;
     }
 
-    const player2WinRound = (currentRound, player2Score) => {
-        round.textContent = currentRound;
+    const player2WinRound = (player2Score) => {
         player2ScoreCounter.textContent = player2Score;
+    }
+
+    const nextRound = (currentRound) => {
+        round.textContent = currentRound;
     }
 
     const resetScoreBoard = (currentRound, player1Score, player2Score) => {
         round.textContent = currentRound;
-        player1ScoreCounter = player1Score;
-        player2ScoreCounter = player2Score;
+        player1ScoreCounter.textContent = player1Score;
+        player2ScoreCounter.textContent = player2Score;
     }
 
-    return {player1WinRound, player2WinRound, resetScoreBoard};
+    return {player1WinRound, player2WinRound, nextRound, resetScoreBoard};
 })()
 
 const gameArena = (() => {
@@ -86,9 +88,13 @@ const playerOne = (() => {
         }
     }
 
+    const getName = () => {
+        return name;
+    }
+
     const winRound = () => {
         roundScore++;
-        scoreBoard.player1WinRound(round, roundScore);
+        scoreBoard.player1WinRound(roundScore);
         endRoundDisplay(name);
     }
 
@@ -101,8 +107,8 @@ const playerOne = (() => {
 
     gameArena.setPlayer1Color(markerColor);
 
-    return {marker, winRound, resetScore};
-})()
+    return {marker, getName, winRound, resetScore};
+})();
 
 const playerTwo = (() => {
     let name = "Player 2";
@@ -130,9 +136,13 @@ const playerTwo = (() => {
         }
     }
 
-    const winRound = (round) => {
+    const getName = () => {
+        return name;
+    }
+
+    const winRound = () => {
         roundScore++
-        scoreBoard.player2WinRound(round, roundScore);
+        scoreBoard.player2WinRound(roundScore);
         endRoundDisplay(name);
     }
 
@@ -145,10 +155,10 @@ const playerTwo = (() => {
 
     gameArena.setPlayer2Color(markerColor);
 
-    return {marker, winRound, resetScore}
+    return {marker, getName, winRound, resetScore}
 })();
 
-const endRoundDisplay = () => {
+const endRoundDisplay = (() => {
     const endRoundContainer = document.getElementById("end-round-container");
     const announcement = document.getElementById("announcement");
     const nextRoundBtn = document.getElementById("next-round")
@@ -165,7 +175,7 @@ const endRoundDisplay = () => {
 
     nextRoundBtn.addEventListener("click", () => {
         hideBtns();
-        gameBoard.resetBoard;
+        gameBoard.resetBoard();
     });
 
     resetBtn.addEventListener("click", ()=>{
@@ -174,7 +184,7 @@ const endRoundDisplay = () => {
     })
 
     return endRound;
-}
+})();
 
 
 // Game engine
@@ -216,12 +226,14 @@ const gameBoard = (() => {
 
             getCurrentConditions().some(total =>{
                 if(total === 3) {
-                    playerOne.winRound(currentRound);
-                    gameArena.endRound(playerOne.name);
+                    roundFinished = true;
+                    playerOne.winRound();
+                    endRoundDisplay(playerOne.getName());
                     return;
                 } else if (total === -3) {
-                    playerTwo.winRound(currentRound);
-                    gameArena.endRound(playerTwo.name);
+                    roundFinished = true;
+                    playerTwo.winRound();
+                    endRoundDisplay(playerTwo.getName());
                     return;
                 }
             })
@@ -236,6 +248,8 @@ const gameBoard = (() => {
         }
         whosTurn = "player1";
         roundFinished = false;
+        currentRound++
+        scoreBoard.nextRound(currentRound);
         gameArena.resetArea();
     }
 
@@ -247,4 +261,3 @@ const gameBoard = (() => {
 
     return {takeTurn, resetBoard, resetGame};
 })();
-
