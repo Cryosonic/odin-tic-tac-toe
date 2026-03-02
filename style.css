@@ -1,27 +1,77 @@
-h1 {
-    text-align: center;
-}
-
 .hidden {
     display: none;
 }
 
-#arena {
-    display: grid;
-    background-color: black;
-    width: min-content;
+main {
     margin: 0 auto;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    gap: 10px;
-    align-items: stretch;
-    justify-items: stretch;
-    --player-one-color: red;
-    --player-two-color: blue;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-    .position {
-        display: flex;
-        font-size: 3rem;
-        border: 2px solid rgb(100, 255, 100);
+    h1 {
+        text-align: center;
+    }
+
+    #scoreboard {
+        display: grid;
+        grid-template-columns: repeat(2 min-content);
+        column-gap: 25px;
+        background-color: green;
+
+        #round {
+            grid-column: span 2;
+            text-align: center;
+            font-size: 1.4rem;
+
+            p + p {
+                font-weight: 600;
+            }
+        }
+
+        #player-one,
+        #player-two {
+            .player-header {
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+
+            #p1-name,
+            #p2-name {
+                font-weight: 600;
+            }
+        }
+    }
+
+    #arena {
+        display: grid;
+        background-color: black;
+        width: min-content;
+        margin: 0 auto;
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+        gap: 10px;
+        align-items: stretch;
+        justify-items: stretch;
+        --player-one-color: red;
+        --player-two-color: blue;
+
+        .position {
+            display: flex;
+            font-size: 3rem;
+            border: 2px solid rgb(100, 255, 100);
+        }
+    }
+
+    #end-round-container {
+        display: grid;
+        grid-template-columns: repeat(2 min-content);
+        column-gap: 25px;
+        justify-content: center;
+
+        p {
+            grid-column: span 2;
+            text-align: center;
+        }
     }
 }

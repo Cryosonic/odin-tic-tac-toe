@@ -165,11 +165,11 @@ const endRoundDisplay = (() => {
     const resetBtn = document.getElementById("reset-game");
 
     const hideBtns = () => {
-        endRoundContainer.classList.add("hidden");
+        endRoundContainer.style.display = "none";
     }
 
     const endRound = (winningPlayer) => {
-        endRoundContainer.classList.remove("hidden");
+        endRoundContainer.style.display = "grid";
         announcement.textContent = `${winningPlayer} wins this round!`;
     }
 
@@ -223,6 +223,8 @@ const gameBoard = (() => {
                 gameArena.placeMarker(playerTwo.marker, "var(--player-two-color)", target)
                 whosTurn = "player1"
             }
+
+            // TODO: Tie condition
 
             getCurrentConditions().some(total =>{
                 if(total === 3) {
