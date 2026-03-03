@@ -8,6 +8,9 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    --player-one-color: red;
+    --player-two-color: blue;
+
 
     h1 {
         text-align: center;
@@ -17,7 +20,7 @@ main {
         display: grid;
         grid-template-columns: repeat(2 min-content);
         column-gap: 25px;
-        background-color: green;
+        /* background-color: green; */
 
         #round {
             grid-column: span 2;
@@ -29,17 +32,20 @@ main {
             }
         }
 
-        #player-one,
-        #player-two {
-            .player-header {
-                font-size: 1.2rem;
-                font-weight: 600;
-            }
+        .player-header {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
 
-            #p1-name,
-            #p2-name {
-                font-weight: 600;
-            }
+        .name {
+            font-weight: 600;
+        }
+
+        #player-one .player-marker {
+            background-color: var(--player-one-color);
+        }
+        #player-two .player-marker {
+            background-color: var(--player-two-color);
         }
     }
 
@@ -53,8 +59,7 @@ main {
         gap: 10px;
         align-items: stretch;
         justify-items: stretch;
-        --player-one-color: red;
-        --player-two-color: blue;
+
 
         .position {
             display: flex;
@@ -64,7 +69,7 @@ main {
     }
 
     #end-round-container {
-        display: grid;
+        display: none;
         grid-template-columns: repeat(2 min-content);
         column-gap: 25px;
         justify-content: center;
