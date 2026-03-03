@@ -95,7 +95,6 @@ const playerOne = (() => {
     const winRound = () => {
         roundScore++;
         scoreBoard.player1WinRound(roundScore);
-        endRoundDisplay(name);
     }
 
     const resetScore = () => {const
@@ -143,7 +142,6 @@ const playerTwo = (() => {
     const winRound = () => {
         roundScore++
         scoreBoard.player2WinRound(roundScore);
-        endRoundDisplay(name);
     }
 
     const resetScore = () => {
@@ -195,6 +193,7 @@ const gameBoard = (() => {
          [0,0,0]];
     let whosTurn = "player1";
     let currentRound = 1;
+    let turn = 0;
     let roundFinished = false;
 
     const getCurrentConditions = () => {
@@ -223,7 +222,11 @@ const gameBoard = (() => {
                 gameArena.placeMarker(playerTwo.marker, "var(--player-two-color)", target)
                 whosTurn = "player1"
             }
-
+            turn++
+            if (turn === 9) {
+                roundFinished = true;
+                endRoundDisplay("Tie! No one ");
+            }
             // TODO: Tie condition
 
             getCurrentConditions().some(total =>{
@@ -251,6 +254,7 @@ const gameBoard = (() => {
         whosTurn = "player1";
         roundFinished = false;
         currentRound++
+        turn = 0;
         scoreBoard.nextRound(currentRound);
         gameArena.resetArea();
     }
