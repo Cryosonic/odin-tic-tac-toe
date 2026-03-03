@@ -1,18 +1,24 @@
+:root {
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0;
+}
+
 .hidden {
     display: none;
 }
 
 main {
+    max-width: 1400px;
     margin: 0 auto;
-    max-width: 1000px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     --player-one-color: red;
     --player-two-color: blue;
 
-
     h1 {
+        font-size: 4rem;
         text-align: center;
     }
 
@@ -20,7 +26,6 @@ main {
         display: grid;
         grid-template-columns: repeat(2 min-content);
         column-gap: 25px;
-        /* background-color: green; */
 
         #round {
             grid-column: span 2;
@@ -46,6 +51,55 @@ main {
         }
         #player-two .player-marker {
             background-color: var(--player-two-color);
+        }
+
+        .color-picker {
+            display: grid;
+            grid-template-columns: repeat(7, 50px);
+            grid-template-rows: auto 50px;
+            column-gap: 25px;
+
+            p {
+                grid-column: span 7;
+            }
+
+            .color-choice {
+                border: 5px dashed transparent;
+                border-radius: 10px;
+                height: 40px;
+            }
+
+            input[type=radio]:checked + .color-choice {
+                border-color: black;
+            }
+
+            .red {
+                background-color: red;
+            }
+
+            .orange {
+                background-color: orange;
+            }
+
+            .yellow {
+                background-color: yellow;
+            }
+
+            .green {
+                background-color: green;
+            }
+
+            .blue {
+                background-color: blue;
+            }
+
+            .indigo {
+                background-color: indigo;
+            }
+
+            .violet {
+                background-color: violet;
+            }
         }
     }
 

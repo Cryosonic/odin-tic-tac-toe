@@ -13,6 +13,7 @@
 
         <div id="scoreboard">
             <div id="round"><p>Round</p><p id="round-counter">1</p></div>
+
             <div id="player-one">
                 <p class="player-header">Player 1</p>
                 <p>Player Name: 
@@ -21,9 +22,40 @@
                     <button type="button" class="name-button" id="set-p1">Confirm Player 1 Name</button>
                 </p>
                 <p>Player symbol: <img src="./images/cross.png" class="player-marker"></p>
-                <p>Player Color: <div id="p1-color-selector">red</div></p>
+                <div class="color-picker">
+                    <p>Player Color:</p>
+                    <label for="p1-red">
+                        <input type="radio" id="p1-red" class="hidden" name="p1-color" checked>
+                        <div class="color-choice red"></div>
+                    </label>
+                    <label for="p1-orange">
+                        <input type="radio" id="p1-orange" class="hidden" name="p1-color">
+                        <div class="color-choice orange"></div>
+                    </label>
+                    <label for="p1-yellow">
+                        <input type="radio" id="p1-yellow" class="hidden" name="p1-color">
+                        <div class="color-choice yellow"></div>
+                    </label>
+                    <label for="p1-green">
+                        <input type="radio" id="p1-green" class="hidden" name="p1-color">
+                        <div class="color-choice green"></div>
+                    </label>
+                    <label for="p1-blue">
+                        <input type="radio" id="p1-blue" class="hidden" name="p1-color">
+                        <div class="color-choice blue"></div>
+                    </label>
+                    <label for="p1-indigo">
+                        <input type="radio" id="p1-indigo" class="hidden" name="p1-color">
+                        <div class="color-choice indigo"></div>
+                    </label>
+                    <label for="p1-violet">
+                        <input type="radio" id="p1-violet" class="hidden" name="p1-color">
+                        <div class="color-choice violet"></div>
+                    </label>
+                </div>
                 <p>Player 1 score: <span id="p1-score-counter">0</span></p>
             </div>
+
             <div id="player-two">
                 <p class="player-header">Player 2</p>
                 <p>Player Name: 
@@ -32,7 +64,37 @@
                     <button type="button" class="name-button" id="set-p2">Confirm Player 2 Name</button>
                 </p>
                 <p>Player symbol: <img src="./images/naught.png" class="player-marker"></p>
-                <p>Player Color: </p><div id="p1-color-selector">blue</div>
+                <div class="color-picker">
+                    <p>Player Color:</p>
+                    <label for="p2-red">
+                        <input type="radio" id="p2-red" class="hidden" name="p2-color">
+                        <div class="color-choice red"></div>
+                    </label>
+                    <label for="p2-orange">
+                        <input type="radio" id="p2-orange" class="hidden" name="p2-color">
+                        <div class="color-choice orange"></div>
+                    </label>
+                    <label for="p2-yellow">
+                        <input type="radio" id="p2-yellow" class="hidden" name="p2-color">
+                        <div class="color-choice yellow"></div>
+                    </label>
+                    <label for="p2-green">
+                        <input type="radio" id="p2-green" class="hidden" name="p2-color">
+                        <div class="color-choice green"></div>
+                    </label>
+                    <label for="p2-blue">
+                        <input type="radio" id="p2-blue" class="hidden" name="p2-color" checked>
+                        <div class="color-choice blue"></div>
+                    </label>
+                    <label for="p2-indigo">
+                        <input type="radio" id="p2-indigo" class="hidden" name="p2-color">
+                        <div class="color-choice indigo"></div>
+                    </label>
+                    <label for="p2-violet">
+                        <input type="radio" id="p2-violet" class="hidden" name="p2-color">
+                        <div class="color-choice violet"></div>
+                    </label>
+                </div>
                 <p>Player 2 score: <span id="p2-score-counter">0</span></p>
             </div>
         </div>
