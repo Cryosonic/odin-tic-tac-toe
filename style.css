@@ -13,13 +13,16 @@ main {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: stretch;
     --player-one-color: var(--p1-select);
     --player-two-color: var(--p2-select);
 
     h1 {
         font-size: 4rem;
+        text-align: center;
+    }
+
+    article {
         text-align: center;
     }
 
