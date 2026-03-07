@@ -14,8 +14,9 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    --player-one-color: red;
-    --player-two-color: blue;
+    align-items: stretch;
+    --player-one-color: var(--p1-select);
+    --player-two-color: var(--p2-select);
 
     h1 {
         font-size: 4rem;
@@ -24,7 +25,7 @@ main {
 
     #scoreboard {
         display: grid;
-        grid-template-columns: repeat(2 min-content);
+        grid-template-columns: repeat(2, 1fr);
         column-gap: 25px;
 
         #round {
@@ -37,7 +38,8 @@ main {
             }
         }
 
-        .player-header {
+        .player-header,
+        .score-counter {
             font-size: 1.2rem;
             font-weight: 600;
         }
@@ -46,60 +48,21 @@ main {
             font-weight: 600;
         }
 
+        #p1-name,
+        #p1-score-counter {
+            color: red;
+        }
+
+        #p2-name,
+        #p2-score-counter {
+            color: blue;
+        }
+
         #player-one .player-marker {
-            background-color: var(--player-one-color);
+            background-color: red;
         }
         #player-two .player-marker {
-            background-color: var(--player-two-color);
-        }
-
-        .color-picker {
-            display: grid;
-            grid-template-columns: repeat(7, 50px);
-            grid-template-rows: auto 50px;
-            column-gap: 25px;
-
-            p {
-                grid-column: span 7;
-            }
-
-            .color-choice {
-                border: 5px dashed transparent;
-                border-radius: 10px;
-                height: 40px;
-            }
-
-            input[type=radio]:checked + .color-choice {
-                border-color: black;
-            }
-
-            .red {
-                background-color: red;
-            }
-
-            .orange {
-                background-color: orange;
-            }
-
-            .yellow {
-                background-color: yellow;
-            }
-
-            .green {
-                background-color: green;
-            }
-
-            .blue {
-                background-color: blue;
-            }
-
-            .indigo {
-                background-color: indigo;
-            }
-
-            .violet {
-                background-color: violet;
-            }
+            background-color: blue;
         }
     }
 

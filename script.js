@@ -67,7 +67,7 @@ const playerOne = (() => {
     const p1NameDisplay = document.getElementById("p1-name")
     const p1NameInput = document.getElementById("p1-name-input");
     const p1NameBtn = document.getElementById("set-p1");
-    const marker = "./images/naught.png";
+    const marker = "./images/b-naught.png"
     const markerColor = "red";  // TODO: update background colour for p1
     let roundScore = 0;
 
@@ -97,7 +97,7 @@ const playerOne = (() => {
         scoreBoard.player1WinRound(roundScore);
     }
 
-    const resetScore = () => {const
+    const resetScore = () => {
         roundScore = 0;
         return roundScore;
     }
@@ -114,7 +114,7 @@ const playerTwo = (() => {
     const p2NameDisplay = document.getElementById("p2-name");
     const p2NameInput = document.getElementById("p2-name-input");
     const p2NameBtn = document.getElementById("set-p2");
-    const marker = "./images/cross.png";
+    const marker = "./images/b-cross.png";
     const markerColor = "blue"; // TODO: update background colour for p2
     let roundScore = 0;
 
